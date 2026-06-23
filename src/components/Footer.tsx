@@ -120,9 +120,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Divine Peniel Chapel Worldwide (D.P.C.W). All rights reserved.
           </p>
           <div className="flex items-center gap-5">
-            <a href="/privacy" className="text-[12px] text-white/40 hover:text-white/70 transition-colors">Privacy Policy</a>
-            <span className="text-white/20">|</span>
-            <a href="/terms" className="text-[12px] text-white/40 hover:text-white/70 transition-colors">Terms of Service</a>
+            <a href="/privacy" className="text-[12px] text-white/60 hover:text-white underline underline-offset-2 transition-colors">Privacy Policy</a>
+            <span className="text-white/30">|</span>
+            <a href="/terms" className="text-[12px] text-white/60 hover:text-white underline underline-offset-2 transition-colors">Terms of Service</a>
           </div>
           <p className="text-[12px] text-white/40 flex items-center gap-1.5">
             Made with <Heart className="w-3 h-3 text-rose-400" fill="currentColor" /> for His glory
