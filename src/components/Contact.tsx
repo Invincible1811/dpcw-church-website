@@ -327,6 +327,11 @@ export default function Contact() {
             <p className="text-[11px] text-white/30">
               &copy; {new Date().getFullYear()} Divine Peniel Chapel Worldwide (D.P.C.W). All rights reserved.
             </p>
+            <div className="flex items-center gap-4">
+              <a href="/privacy" className="text-[11px] text-white/50 hover:text-white underline underline-offset-2 transition-colors">Privacy Policy</a>
+              <span className="text-white/20">|</span>
+              <a href="/terms" className="text-[11px] text-white/50 hover:text-white underline underline-offset-2 transition-colors">Terms of Service</a>
+            </div>
             <p className="text-[11px] text-white/30 flex items-center gap-1">
               Made with <Heart className="w-3 h-3 text-amber-400/50" /> for His glory
             </p>

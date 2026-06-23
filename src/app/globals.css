@@ -111,6 +111,21 @@ video[autoplay] {
   -webkit-appearance: none !important;
 }
 
+/* Force no controls on all videos */
+video {
+  -webkit-appearance: none;
+  appearance: none;
+  object-fit: cover;
+}
+
+video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  visibility: hidden !important;
+}
+
 /* Quote appear and disappear */
 @keyframes quote-appear {
   0% {

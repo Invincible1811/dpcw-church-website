@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { X, Play, Heart, Gift, Users, HandHeart } from 'lucide-react'
@@ -31,6 +31,23 @@ const impactStats = [
 
 export default function Care() {
   const [lightbox, setLightbox] = useState<{ src: string; type: 'image' | 'video' } | null>(null)
+  const heroVideoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = heroVideoRef.current
+    if (video) {
+      video.muted = true
+      video.playsInline = true
+      video.loop = true
+      const playPromise = video.play()
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Retry after a short delay
+          setTimeout(() => { video.play().catch(() => {}) }, 500)
+        })
+      }
+    }
+  }, [])
 
   return (
     <section id="care">
@@ -92,20 +109,20 @@ export default function Care() {
               >
                 <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-black/50 aspect-[4/3]">
                   <video
+                    ref={heroVideoRef}
                     src="/media/care/care-video-1.mp4"
                     muted
                     loop
                     autoPlay
                     playsInline
-                    controls={false}
-                    disablePictureInPicture
+                    preload="auto"
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ pointerEvents: 'none' }}
                   />
-                  {/* Overlay to block any native play button */}
-                  <div className="absolute inset-0 z-10" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-20 pointer-events-none" />
-                  <div className="absolute bottom-5 left-5 flex items-center gap-2 z-20">
+                  {/* Full opaque overlay to permanently hide any browser play button */}
+                  <div className="absolute inset-0 z-10 bg-transparent" style={{ WebkitTapHighlightColor: 'transparent' }} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-20" />
+                  <div className="absolute bottom-5 left-5 flex items-center gap-2 z-30">
                     <div className="w-2 h-2 rounded-full bg-rose-400 animate-pulse" />
                     <span className="text-white/70 text-[11px] font-medium uppercase tracking-wider">Annual Outreach</span>
                   </div>
