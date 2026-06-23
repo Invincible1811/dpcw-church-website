@@ -7,10 +7,31 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Safe area for notched phones (iPhone X+) */
+  @supports (padding: env(safe-area-inset-bottom)) {
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+
+  /* Ensure touch targets are accessible on mobile */
+  @media (max-width: 1024px) {
+    button:not([class*="w-"]):not([class*="p-"]) {
+      min-height: 44px;
+    }
   }
 }
 
@@ -72,6 +93,22 @@ video::-internal-media-controls-overlay-cast-button {
   -webkit-appearance: none !important;
   opacity: 0 !important;
   pointer-events: none !important;
+}
+
+/* Additional: hide play button on all browsers */
+video::-moz-media-controls,
+video::-ms-media-controls {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+video[autoplay] {
+  -webkit-media-controls-start-playback-button: none;
+}
+
+*::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none !important;
 }
 
 /* Quote appear and disappear */

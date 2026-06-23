@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 
 export default function GrowPage() {
   return (
-    <main className="bg-[#0a0a0a]">
+    <main>
       <Navbar />
       {/* Spacer for fixed navbar */}
       <div className="h-20" />

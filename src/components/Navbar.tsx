@@ -8,12 +8,11 @@ import Image from 'next/image'
 const navLinks = [
   { name: 'Home', href: '/', color: '#f5f5f5' },
   { name: 'About', href: '/about', color: '#a8a29e' },
-  { name: 'Events', href: '#program', color: '#7dd3c0' },
-  { name: 'Give', href: '#give', color: '#c4b5fd' },
-  { name: 'Connect', href: '#contact', color: '#93c5fd' },
-  { name: 'Contact', href: '#contact', color: '#fca5a5' },
+  { name: 'Events', href: '/#program', color: '#7dd3c0' },
+  { name: 'Give', href: '/#give', color: '#c4b5fd' },
+  { name: 'Connect', href: '/#contact', color: '#93c5fd' },
   { name: 'Grow', href: '/grow', color: '#86efac' },
-  { name: 'Care', href: '#contact', color: '#fcd34d' },
+  { name: 'Care', href: '/care', color: '#fcd34d' },
 ]
 
 export default function Navbar() {
@@ -97,7 +96,7 @@ export default function Navbar() {
           {/* Right side CTA — Crimson pulsating */}
           <div className="hidden lg:flex items-center">
             <motion.a
-              href="#live"
+              href="/#live"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               animate={{
@@ -160,7 +159,7 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <motion.a
-                href="#live"
+                href="/#live"
                 onClick={() => setIsOpen(false)}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}

@@ -232,7 +232,7 @@ export default function Donate() {
               <div>
                 <p className="text-white/40 text-[10px] font-medium uppercase tracking-wider mb-1">Account Number</p>
                 <div className="flex items-center justify-between">
-                  <p className="text-white font-mono text-[22px] font-bold tracking-wider">027 124 8652</p>
+                  <p className="text-white font-mono text-[18px] sm:text-[22px] font-bold tracking-wider">027 124 8652</p>
                   <CopyButton text="0271248652" />
                 </div>
               </div>
